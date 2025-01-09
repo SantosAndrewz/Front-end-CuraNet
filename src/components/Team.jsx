@@ -2,9 +2,9 @@ import React from "react";
 
 const teams = [
   { id: 1, name: "Lawrence Eniola", role: "Frontend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
-  { id: 2, name: "Name here", role: "Frontend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
-  { id: 3, name: "Name here", role: "Backend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
-  { id: 4, name: "Name here", role: "Backend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
+  { id: 2, name: "Andrew Ssentongo", role: "Frontend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
+  { id: 3, name: "Mark Mawejje", role: "Backend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
+  { id: 4, name: "Ambrose ", role: "Backend engineer", img: "https://static.thenounproject.com/png/363640-200.png" },
 ];
 
 const TeamsSection = () => {
