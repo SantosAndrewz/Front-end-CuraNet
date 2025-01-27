@@ -1,6 +1,10 @@
 import { Navbar, Button } from "../utils/index"
+import { Navigation } from "../apis/context/navigateContext";
+
 
 const HeroSection = () => {
+  const navigate = Navigation();
+  
   return (
     <section id="home" className="relative h-screen">
       <Navbar />
@@ -25,7 +29,7 @@ const HeroSection = () => {
         </p>
         <p className="text-base md:text-md my-6">
         Simplifying pharmacy workflows and provide healthcare professionals with tools to enhance patient safety and optimize daily operations.</p>
-        <Button variant="outlined" color="primary" size="lg">
+        <Button onClick={()=>{navigate('/login');}} variant="outlined" color="primary" size="lg">
           Get Started
         </Button>
       </div>
