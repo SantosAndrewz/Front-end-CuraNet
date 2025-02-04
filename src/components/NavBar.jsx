@@ -3,6 +3,8 @@ import Button from "./Button";
 import { Navigation } from "../apis/context/navigateContext";
 
 const Navbar = () => {
+  const navigate = Navigation();
+
   return (
     <nav className="absolute top-0 left-0 w-full bg-transparent z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
@@ -33,7 +35,7 @@ const Navbar = () => {
           >
             Team
           </a>
-          <Button onClick={()=>{Navigation('/login')}} variant="filled" color="primary" size="md">
+          <Button onClick={()=>{navigate('/login');}} variant="filled" color="primary" size="md">
             LogIn
           </Button>
         </div>

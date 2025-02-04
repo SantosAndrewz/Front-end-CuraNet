@@ -12,13 +12,13 @@ import Footer from "../components/Footer";
 
 const AdminDashboard = () => {
     return (
-        <div className="flex h-screen">
+        <div className="h-screen">
             {/* Header */}
             <Header />
 
             <div className="flex flex-1">
             {/* Sidebar */}
-                <div className="w-1/4 bg-gray-800 text-white p-4">
+                <div className="bg-gray-800 text-white p-4">
                 <h2 className="text-xl font-bold mb-6">CuraNet Admin</h2>
                 <nav className="space-y-4">
                     <NavLink
