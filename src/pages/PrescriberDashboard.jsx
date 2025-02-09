@@ -14,7 +14,7 @@ const PrescriberDashboard = () => {
     const [prescription, setPrescription] = useState([]);
     const [medicationName, setMedicationName] = useState("");
     const [frequency, setFrequency] = useState("");
-    const [duration, setDuration] = useState("")
+    const [duration, setDuration] = useState("");
     const [interactionWarnings, setInteractionWarnings] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [editIndex, setEditIndex] = useState(null);
