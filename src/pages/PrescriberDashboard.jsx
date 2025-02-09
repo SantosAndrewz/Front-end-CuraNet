@@ -89,6 +89,8 @@ const PrescriberDashboard = () => {
             });
     
             setPrescription(response.data);
+            console.log("I am working");
+            console.log(response.data);
         } catch (error) {
             console.error("Error fetching prescription:", error);
         }
@@ -158,13 +160,21 @@ const PrescriberDashboard = () => {
                 Authorization: `Bearer ${token}`, // Include the Bearer token
             },
         };
+        // const prescriptionData = {
+        //     patient: selectedPatient.id,
+        //     medication_name: prescription.medicationName,
+        //     frequency: prescription.frequency,
+        //     duration: prescription.duration,
+        //     summary: prescription.summary,
+        //     diagnosis: prescription.diagnosis
+        // };
         const prescriptionData = {
             patient: selectedPatient.id,
-            medication_name: prescription.medicationName,
-            frequency: prescription.frequency,
-            duration: prescription.duration,
-            summary: prescription.summary,
-            diagnosis: prescription.diagnosis
+            medication_name: medicationName,
+            frequency: frequency,
+            duration: duration,
+            summary: patientSummary,
+            diagnosis: diagnosis
         };
         console.log("Submitting prescription data:", prescriptionData);
         console.log("Selected Patient:", selectedPatient);
@@ -177,7 +187,6 @@ const PrescriberDashboard = () => {
         fetchPrescription(selectedPatient.id);
 
     } catch (error) {
-        console.error("Error submitting prescription:", error);
         alert("Error submitting prescription.");
         
     } finally {
@@ -248,14 +257,14 @@ const PrescriberDashboard = () => {
                                         <Input
                                             type="text"
                                             placeholder="Patient Summary"
-                                            value={prescription.summary}
+                                            value={patientSummary}
                                             onChange={(e) => setPatientSummary(e.target.value)}
                                             className="p-2 border rounded-md w-full h-40"
                                         />
                                         <Input
                                             type="text"
                                             placeholder="Diagnosis"
-                                            value={prescription.diagnosis}
+                                            value={diagnosis}
                                             onChange={(e) => setDiagnosis(e.target.value)}
                                             className="p-2 border rounded-md w-full h-20"
                                         />
@@ -264,21 +273,21 @@ const PrescriberDashboard = () => {
                                         <Input
                                             type="text"
                                             placeholder="Medication Name"
-                                            value={prescription.medicationName}
-                                            onChange={(e) => setPrescription(e.target.value)}
+                                            value={medicationName}
+                                            onChange={(e) => setMedicationName(e.target.value)}
                                             className="p-2 border rounded-md flex-1"
                                         />
                                         <Input
                                             type="text"
                                             placeholder="Frequency"
-                                            value={prescription.frequency}
+                                            value={frequency}
                                             onChange={(e) => setFrequency(e.target.value)}
                                             className="p-2 border rounded-md flex-1"
                                         />
                                         <Input
                                             type="text"
                                             placeholder="Duration"
-                                            value={prescription.duration}
+                                            value={duration}
                                             onChange={(e) => setDuration(e.target.value)}
                                             className="p-2 border rounded-md flex-1"
                                         />
@@ -290,6 +299,7 @@ const PrescriberDashboard = () => {
                                         </Button>
                                     </div>
                                     <ul className="mb-4">
+                                        {console.log("this -> Prescription data:", prescription)}
                                         {prescription.map((med, index) => (
                                             <li key={index} className="p-2 border rounded-md flex items-center justify-between">
                                                 {editIndex === index ? (
