@@ -54,6 +54,7 @@ const PrescriberDashboard = () => {
                 const patientData = response.data.map((patient) => ({
                     ...patient,
                     age: calculateAge(patient.date_of_birth),
+                    prescriptions: patient.prescriptions,
                 }));
                 setPatients(patientData);
                 console.log("Patients state after fetch:", patientData);
@@ -98,8 +99,23 @@ const PrescriberDashboard = () => {
 
     const handleSelectPatient = (patient) => {
         setSelectedPatient(patient);
-        setPatientSummary("");
-        setDiagnosis("");
+        
+        // Check if patient has prescriptions
+        if (patient.prescriptions.length > 0) {
+            const latestPrescription = patient.prescriptions[0];
+            setPatientSummary(latestPrescription.summary || "");
+            setDiagnosis(latestPrescription.diagnosis || "");
+            setMedicationName(latestPrescription.medication_name || "");
+            setFrequency(latestPrescription.frequency || "");
+            setDuration(latestPrescription.duration || "");
+        } else {
+            // No prescriptions, reset the fields to blank
+            setPatientSummary("");
+            setDiagnosis("");
+            setMedicationName("");
+            setFrequency("");
+            setDuration("");
+        }
         setPrescription([]);
         setInteractionWarnings([]);
     };
